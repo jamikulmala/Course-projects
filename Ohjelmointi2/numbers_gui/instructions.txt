@@ -1,0 +1,66 @@
+COMP.CS.110 Projekti 3: 2048
+Nimi: Jami Kulmala
+Opiskelijanumero: 150425043
+käyttäjätunnus: fgjaku
+E-Mail: jami.kulmala@tuni.fi
+
+Pelin tarkoituksena on yhdistellä tiilejä, jotka kertoutuvat aina kahdella
+yhdistyessä, ja päästä annettuun tuloslukuun. Käyttöliittymästä näkyy reaaliaikaisesti
+numeroiden päivittyminen. Peliä pelataan WASD-kirjainnäppäimillä. Syöttökentät lukittautuvat
+ja muut näppämet jätetään huomiotta.
+
+Jos peli voitetaan tai hävitään tulee esiin ruutu, joka ilmoittaa tapahtumasta, ja käyttäjällä
+on vaihtoehtona poistua pelistä, tai aloittaa uusi peli. Kaikki halutut pelikokemuksen
+muokkaamiseen liittyvät asiat tulee asettaa ennen start gamen painamista, jolloin kentät lukittuvat.
+
+Pelin graafinen käyttöliittymä on toteutettu käytännössä niin, että aluksi Start Game nappia
+painamalla kutsutaan initialize() metodia, joka luo vakio pelilaudan graafiseen käyttöliittymään.
+metodi käy läpi pelin tietorakennetta ja asettaa tyhjien ruutujen kohdalle valkoisen ruudun ja
+ruutujen, joilla on arvo, kohdalle siihen liittyvän värin ja numeron. peliruudukko tyhjennetään
+ja initialize() metodia kutsutaan uudelleen aina, kun käyttäjä liikuttaa ruutuja, johonkin suuntaan näppäimillä.
+
+Kohtaan "Enter a seed" pelaaja vai syöttää haluamansa siemenluvun, pelin
+satunnaislukugeneraattorille, jolloin erilainen peli on mahdollista saada, jos
+luku jätetään syöttämättä generoituu se satunnaisesti.
+
+Kohtaan "Enter a goal" pelaaja voi syöttää haluamansa luvun, josta tulee pelin tavoiteluku.
+Jos pelaaja syöttää luvun, joka ei ole kakkosen potenssi, käytetään tavoitelukuna vakionumeroa 2048.
+
+Kohdasta "New game" pelaaja voi aloittaa uuden pelin, jolloin edellinen peli ja pelikenttä nollaantuu.
+
+Kohdasta "Start game" peli alkaa ja ajanotto käynnistyy, sekä syöttökentät lukittautuvat.
+
+Kohdasta "Exit" ohjelman suoritus päättyy.
+
+--Lisäominaisuudet--
+
+Eriluvuilla on eri värit: Ruutujen värit tummenevat kelta, oranssi, punasävyin tummemmaksi
+ruudun arvon kasvaessa, kunnes, jos päästään yli 2048 ruutu on tummanharmaa. Ruutujen värit
+asetettu RGB-arvoittain Value struct-rakenteeseen, josta laatalle haetaan väri ja numero arvon perusteella.
+
+Pelissä on ajastin, joka kertoo siihen mennessä käytetyn ajan: Ajastin lähtee käyntiin
+painaessa Start Game ja nollaantuu, kun uusi peli nollaantuu. Minuutit ja sekunnit näytetään erikseen.
+
+Jonkin tietyn siirtomäärän jälkeen ohjelma poistaa pelistä satunnaisesti valitun (tai käyttäjän määräämän)
+luvun eli tyhjentää ruudun: Käyttäjä voi kytkeä ominaisuuden päälle valitsemalla siirtomäärän, jonka
+jälkeen ruutu tyhjennetään ja vahvistamalla valintansa viereisellä checkboxilla. Esimerkiksi, jos
+käyttäjä antaa luvun kymmenen, joka kymmenes siirto yksi satunnainen ruutu, jolla on arvo 2, 4 tai 8 poistetaan.
+
+Pelissä on jonkinlainen pistelasku, joka perustuu pelaajan taitavuuteen: Start Gamen vieressä on laskuri, joka
+pitää kirjaa pelaajan siirtomäärästä. Siirtomäärää käytetään laskukaavassa Pisteet - siirrot - aika = taitotaso,
+joka näytetään pelin leaderboardissa, pelin voittaessa. Heikoimopana taso NOOB ja korkeimpana taso MICHAEL JORDAN.
+
+Peli sisältää tulostaulun, johon tallentuu pelaajan saamat pisteet: Pelaaja voi syöttää käyttäjä nimensä, kohdassa
+"Enter a username", jolloin voitettu peli tallennetaan tiedostoon leaderboard.txt tiedot tallennetaan muodossa:
+käyttäjänimi - pisteet - siirrot - aika - taitotaso.
+
+Ohjelma tarkistaa, että annettu tavoite on kakkosen potenssi: Kohtaan "Enter a goal" pelaaja voi syöttää haluamansa luvun,
+jos pelaaja syöttää luvun, joka ei ole kakkosen potenssi, käytetään tavoitelukuna vakionumeroa 2048.
+
+Käyttöliittymän taustaväri vaihtuu, kun pelaaja voittaa tai häviää
+(voitosta taustaväri muuttuu esim. vihreäksi ja häviöstä punaiseksi).
+Uudelleenaloituksessa (reset) taustaväri palautuu ennalleen.
+
+Pelissä on pause-nappula, jolla ajanoton saa pysäytettyä, kun peli on käynnissä: "Pause" kohtaa painamalla
+ajanotto pysähtyy, peli lakkaa ottamasta vastaan näppäinkomintoja ja PAUSE-Label tulostuu näytölle. Pausea
+voi painaa vain pelin ollessa käynnissä.

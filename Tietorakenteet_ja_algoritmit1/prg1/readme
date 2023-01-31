@@ -1,0 +1,25 @@
+Station eli asema on toteutuksessa oma structinsa, jolla on id, nimi, koordinaatit,
+unordered_mapin, joka sisältää aseman lähdöt sekä tieto alueesta, johon kaupunki
+mahdollisesti kuuluu. Structista saadaan tehokkaasti ulos tarvittavat
+tiedot sen avainsanojen avulla. Kaikki tiedot on alustettu tyhjiksi. Asemat
+sijaitsevat tietorakenteessa unordered map, johon id on asetettu avaimeksi ja
+struct arvoksi. Yleisin operaatio, jota asemille suoritetaan on sen id:n avulla
+olemassa olon tarkistaminen. Tämä on keskimäärin tehokkaampaa mapissa, kuin
+avaimettomissa tietorakenteissa. unordered_mapin lajittelu
+on suhteellisen hidasta, mutta puolestaan siihen lisääminen on tehokasta, joten
+se soveltuu riittävän hyvin tehtävään.
+
+Departures eli lähdöt on toteutettu unordered_mapina asemoiden sisällä. Unordered
+mapissa avaimena on junan id ja arvona lähtöaika. Näiden lisäksi lähdöstä
+tarvitsee tietää vain asema, mutta se selviää siitä minkä id:eisessä
+structissa tietorakenne sijaitsee ja on nopea selvittää. Esimerkiksi
+lähdön olemassa olon tarkistaminen ja poistaminen on keskimäärin unordered_mapissa
+nopeampaa kuin vektorissa, joka sisältää lähtöjä tai muussa vastaavissa.
+
+Region eli alue on toteutettu puu tietorakenteena. regionista löytyy
+id, nimi, koordinaatit, asemat jotka sijaitsevat sen sisällä, sen alialueet ja
+alue johon se mahdollisesti kuuluu. Perustiedot saadaan puusta nopeasti ulos ja
+sen läpikäyminen rekursiivisissa tilanteissa on tehokasta, tarvittavissa operaatioissa. regionit
+sijaitsevat vektorissa, jota käytetään pääasiassa sen takia, että suurinosa
+regionin operaatioista tarvitsee vektorin parametrinä ja palauttaa vektorin
+toteutuksessani.
