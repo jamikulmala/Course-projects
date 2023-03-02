@@ -1,0 +1,32 @@
+[
+  {
+    "id": "d735f2908d8011ecaf2dedf369a4cec0",
+    "name": "Admin",
+    "email": "admin@email.com",
+    "role": "admin"
+  },
+  {
+    "id": "d74275b08d8011ecaf2dedf369a4cec0",
+    "name": "Customer",
+    "email": "customer@email.com",
+    "role": "customer"
+  },
+  {
+    "id": "d74ed1c08d8011ecaf2dedf369a4cec0",
+    "name": "Admin2",
+    "email": "admin2@email.com",
+    "role": "admin"
+  },
+  {
+    "id": "d75b06c08d8011ecaf2dedf369a4cec0",
+    "name": "Customer2",
+    "email": "customer2@email.com",
+    "role": "customer"
+  },
+  {
+    "id": "f9daf8808b2911ec9cbb9fd11be29a90",
+    "name": "Customer3",
+    "email": "customer3@email.com",
+    "role": "customer"
+  }
+]
